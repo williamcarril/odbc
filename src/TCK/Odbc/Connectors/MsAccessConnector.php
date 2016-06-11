@@ -2,7 +2,7 @@
 
 namespace TCK\Odbc\Connectors;
 
-class MsAccessConnector extends \TCK\Odbc\ODBCConnector {
+class MsAccessConnector extends ODBCConnector {
 
     public function connect(array $config) {
         $options = $this->getOptions($config);

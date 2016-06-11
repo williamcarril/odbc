@@ -2,7 +2,7 @@
 
 use Illuminate\Support\ServiceProvider;
 
-class OdbcServiceProvider extends ServiceProvider {
+class ODBCServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -47,7 +47,7 @@ class OdbcServiceProvider extends ServiceProvider {
 				$config['prefix'] = '';
 			}
 
-			$connector = new ODBCConnector();
+			$connector = new Connectors\ODBCConnector();
 			$pdo       = $connector->connect( $config );
 
 			return new ODBCConnection( $pdo, $config['database'], $config['prefix'] );
@@ -59,10 +59,10 @@ class OdbcServiceProvider extends ServiceProvider {
                 $config['prefix'] = '';
             }
 
-            $connector = new \App\Database\MsAccessConnector();
+            $connector = new Connectors\MsAccessConnector();
             $pdo = $connector->connect($config);
 
-            return new \TCK\Odbc\ODBCConnection($pdo, $config['database'], $config['prefix']);
+            return new ODBCConnection($pdo, $config['database'], $config['prefix']);
         });
 	}
 

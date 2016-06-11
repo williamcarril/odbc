@@ -1,4 +1,5 @@
-<?php namespace TCK\Odbc;
+<?php
+namespace TCK\Odbc\Connectors;
 
 use Illuminate\Database\Connectors\Connector;
 use Illuminate\Database\Connectors\ConnectorInterface;
