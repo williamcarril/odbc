@@ -53,6 +53,17 @@ class OdbcServiceProvider extends ServiceProvider {
 			return new ODBCConnection( $pdo, $config['database'], $config['prefix'] );
 
 		} );
+		
+	 	$factory->extend('ms-access', function ( $config ) {
+            if (!isset($config['prefix'])) {
+                $config['prefix'] = '';
+            }
+
+            $connector = new \App\Database\MsAccessConnector();
+            $pdo = $connector->connect($config);
+
+            return new \TCK\Odbc\ODBCConnection($pdo, $config['database'], $config['prefix']);
+        });
 	}
 
 }
