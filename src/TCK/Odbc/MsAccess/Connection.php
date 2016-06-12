@@ -30,7 +30,7 @@ class Connection extends IlluminateConnection {
      * @return \Illuminate\Database\Query\Processors\Processor
      */
     protected function getDefaultPostProcessor() {
-        return new Processor;
+        return new Processor();
     }
 
 }
