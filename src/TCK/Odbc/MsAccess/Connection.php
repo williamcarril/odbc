@@ -3,8 +3,6 @@
 namespace TCK\Odbc\MsAccess;
 
 use Illuminate\Database\Connection as IlluminateConnection;
-use TCK\Odbc\MsAccess\MsAccessQueryGrammar;
-use TCK\Odbc\MsAccess\MsAccessSchemaGramar;
 
 class Connection extends IlluminateConnection {
 
@@ -14,7 +12,7 @@ class Connection extends IlluminateConnection {
      * @return Illuminate\Database\Query\Grammars\Grammars\Grammar
      */
     protected function getDefaultQueryGrammar() {
-        return $this->withTablePrefix(new MsAccessQueryGrammar());
+        return $this->withTablePrefix(new QueryGrammar());
     }
 
     /**
@@ -23,7 +21,7 @@ class Connection extends IlluminateConnection {
      * @return Illuminate\Database\Schema\Grammars\Grammar
      */
     protected function getDefaultSchemaGrammar() {
-        return $this->withTablePrefix(new MsAccessSchemaGramar());
+        return $this->withTablePrefix(new SchemaGramar());
     }
 
 }
