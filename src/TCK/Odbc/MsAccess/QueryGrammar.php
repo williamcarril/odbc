@@ -3,6 +3,7 @@
 namespace TCK\Odbc\MsAccess;
 
 use Illuminate\Database\Query\Grammars\SqlServerGrammar;
+use Illuminate\Database\Query\Builder;
 
 class QueryGrammar extends SqlServerGrammar {
 
