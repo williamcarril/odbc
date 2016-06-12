@@ -2,11 +2,11 @@
 
 namespace TCK\Odbc\MsAccess;
 
-use Illuminate\Database\Connection;
+use Illuminate\Database\Connection as IlluminateConnection;
 use TCK\Odbc\MsAccess\MsAccessQueryGrammar;
 use TCK\Odbc\MsAccess\MsAccessSchemaGramar;
 
-class Connection extends Connection {
+class Connection extends IlluminateConnection {
 
     /**
      * Get the default query grammar instance.

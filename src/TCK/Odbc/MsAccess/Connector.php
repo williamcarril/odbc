@@ -2,10 +2,10 @@
 
 namespace TCK\Odbc\MsAccess;
 
-use Illuminate\Database\Connectors\Connector;
+use Illuminate\Database\Connectors\Connector as IlluminateConnector;
 use Illuminate\Database\Connectors\ConnectorInterface;
 
-class Connector extends Connector implements ConnectorInterface {
+class Connector extends IlluminateConnector implements ConnectorInterface {
 
     public function connect(array $config) {
         $options = $this->getOptions($config);
