@@ -21,7 +21,7 @@ class Connection extends IlluminateConnection {
      * @return Illuminate\Database\Schema\Grammars\Grammar
      */
     protected function getDefaultSchemaGrammar() {
-        return $this->withTablePrefix(new SchemaGramar());
+        return $this->withTablePrefix(new SchemaGrammar());
     }
 
 }
