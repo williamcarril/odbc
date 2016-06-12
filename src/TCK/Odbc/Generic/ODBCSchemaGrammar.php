@@ -1,6 +1,6 @@
 <?php
 
-namespace TCK\Odbc\Grammars\Schema;
+namespace TCK\Odbc\Generic;
 
 use Illuminate\Support\Fluent;
 use Illuminate\Database\Schema\Blueprint;

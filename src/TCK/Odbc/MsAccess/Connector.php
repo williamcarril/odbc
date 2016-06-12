@@ -1,8 +1,11 @@
 <?php
 
-namespace TCK\Odbc\Connectors;
+namespace TCK\Odbc\MsAccess;
 
-class MsAccessConnector extends ODBCConnector {
+use Illuminate\Database\Connectors\Connector;
+use Illuminate\Database\Connectors\ConnectorInterface;
+
+class Connector extends Connector implements ConnectorInterface {
 
     public function connect(array $config) {
         $options = $this->getOptions($config);

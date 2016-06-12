@@ -1,12 +1,12 @@
 <?php
 
-namespace TCK\Odbc\Connections;
+namespace TCK\Odbc\MsAccess;
 
 use Illuminate\Database\Connection;
-use TCK\Odbc\Grammars\Query\MsAccessQueryGrammar;
-use TCK\Odbc\Grammars\Schema\MsAccessSchemaGramar;
+use TCK\Odbc\MsAccess\MsAccessQueryGrammar;
+use TCK\Odbc\MsAccess\MsAccessSchemaGramar;
 
-class MsAccessConnection extends Connection {
+class Connection extends Connection {
 
     /**
      * Get the default query grammar instance.

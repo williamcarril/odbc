@@ -43,10 +43,10 @@ class ODBCServiceProvider extends ServiceProvider {
                 $config['prefix'] = '';
             }
 
-            $connector = new Connectors\ODBCConnector();
+            $connector = new Generic\ODBCConnector();
             $pdo = $connector->connect($config);
 
-            return new Connections\ODBCConnection($pdo, $config['database'], $config['prefix']);
+            return new Generic\ODBCConnection($pdo, $config['database'], $config['prefix']);
         });
 
         $factory->extend('ms-access', function ( $config ) {
@@ -54,10 +54,10 @@ class ODBCServiceProvider extends ServiceProvider {
                 $config['prefix'] = '';
             }
 
-            $connector = new Connectors\MsAccessConnector();
+            $connector = new MsAccess\Connector();
             $pdo = $connector->connect($config);
 
-            return new Connections\MsAccessConnection($pdo, $config['database'], $config['prefix']);
+            return new MsAccess\Connection($pdo, $config['database'], $config['prefix']);
         });
     }
 

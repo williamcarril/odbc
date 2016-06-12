@@ -1,6 +1,6 @@
 <?php
 
-namespace TCK\Odbc\Grammars\Query;
+namespace TCK\Odbc\Generic;
 
 use Illuminate\Database\Query\Grammars\Grammar;
 
