@@ -12,7 +12,7 @@ class Connection extends IlluminateConnection {
      * @return Illuminate\Database\Query\Grammars\Grammars\Grammar
      */
     protected function getDefaultQueryGrammar() {
-        return $this->withTablePrefix(new QueryGrammar());
+        return new QueryGrammar();
     }
 
     /**
@@ -21,7 +21,16 @@ class Connection extends IlluminateConnection {
      * @return Illuminate\Database\Schema\Grammars\Grammar
      */
     protected function getDefaultSchemaGrammar() {
-        return $this->withTablePrefix(new SchemaGrammar());
+        
+    }
+
+    /**
+     * Get the default post processor instance.
+     *
+     * @return \Illuminate\Database\Query\Processors\Processor
+     */
+    protected function getDefaultPostProcessor() {
+        return new Processor;
     }
 
 }
