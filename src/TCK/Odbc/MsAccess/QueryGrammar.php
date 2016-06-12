@@ -8,16 +8,13 @@ use Illuminate\Database\Query\Builder;
 class QueryGrammar extends SqlServerGrammar {
 
     /**
-     * Compile a basic where clause.
+     * Get the appropriate query parameter place-holder for a value.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
-     * @param  array  $where
+     * @param  mixed   $value
      * @return string
      */
-    protected function whereBasic(Builder $query, $where) {
-        $value = $this->parameter($where['value']);
-
-        return $this->wrap($where['column']) . ' ' . $where['operator'] . ' ' . $this->preparePlainValue($value);
+    public function parameter($value) {
+        return $this->isExpression($value) ? $this->getValue($value) : $this->preparePlainValue($value);
     }
 
     protected function preparePlainValue($value) {
