@@ -17,33 +17,32 @@ class QueryGrammar extends SqlServerGrammar {
     protected function whereBasic(Builder $query, $where) {
         $value = $this->parameter($where['value']);
 
-
-        return $this->wrap($where['column']) . ' ' . $where['operator'] . ' ' . $this->wrapValue($value);
+        return $this->wrap($where['column']) . ' ' . $where['operator'] . ' ' . $this->preparePlainValue($value);
     }
 
-    protected function wrapValue($value) {
+    protected function preparePlainValue($value) {
         if (is_numeric($value)) {
-            return $this->wrapNumeric($value);
+            return $this->prepareNumeric($value);
         }
 
         if ($value instanceof DateTime) {
-            return $this->wrapDate($value);
+            return $this->prepareDate($value);
         }
 
         if (is_string($value)) {
-            return $this->wrapText($value);
+            return $this->prepareText($value);
         }
     }
 
-    protected function wrapNumeric($value) {
+    protected function prepareNumeric($value) {
         return $value;
     }
 
-    protected function wrapDate(DateTime $value) {
+    protected function prepareDate(DateTime $value) {
         return $value->format("Y-m-d H:i:s");
     }
 
-    protected function wrapText($value) {
+    protected function prepareText($value) {
         return "'" . str_replace("'", "''", $value) . "'";
     }
 
